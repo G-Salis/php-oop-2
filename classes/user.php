@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . "/cc.php";
+
 class User {
   private $name;
   private $lastname;
@@ -35,12 +37,15 @@ class User {
     return $this->email;
   }
 
-  public function setCreditCard($_creditCard){
-    $this->creditCard = $_creditCard;
-  }
 
+  public function setCreditCard($_circuit,$_serialCode,$_cvv)
+  {
+    $this->creditCard = new CC($_circuit,$_serialCode,$_cvv);
+  }
   public function getCreditCard(){
     return $this->creditCard;
   }
+
+  
  
 }

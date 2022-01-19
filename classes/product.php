@@ -1,16 +1,22 @@
 <?php
 
+require_once __DIR__ . "/generality.php";
+
 class Product {
+
   private $productName;
   private $genre;
   private $id;
+  use Info;
   
 
-  public function __construct($_productName,$_genre,$_id)
+  public function __construct($_productName,$_genre,$_id, $_price, $_prime)
   {
     $this->productName = $_productName;
     $this->genre = $_genre;
     $this->id = $_id;
+    $this->price = $_price;
+    $this->prime = $_prime;
   }
 
   public function setProductName($_productName){
@@ -22,6 +28,12 @@ class Product {
   public function setId($_id){
     $this->id = $_id;
   }
+  public function setPrice($_price){
+    $this->price = $_price;
+  }
+  public function setPrime($_prime){
+    $this->prime = $_prime;
+  }
 
 
   public function getProductName(){
@@ -32,6 +44,12 @@ class Product {
   }
   public function getId(){
     return $this->id;
+  }
+  public function getPrice(){
+    return $this->price;
+  }
+  public function getPrime(){
+    return $this->prime;
   }
  
 }

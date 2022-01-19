@@ -1,6 +1,6 @@
 <?php
 
-class CC {
+class CC extends User{
   private $circuit;
   private $serialCode;
   private $cvv;
@@ -34,8 +34,14 @@ class CC {
     return $this->cvv;
   }
 
-  public function setCreditCard($_creditCard){
-    $this->creditCard = $_creditCard;
+  public function setUser($_name,$_lastname,$_email)
+  {
+    $this->utente = new User($_name,$_lastname,$_email);
   }
+  public function getUser(){
+    return $this->utente;
+  }
+
+
  
 }

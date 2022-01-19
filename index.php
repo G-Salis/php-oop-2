@@ -3,14 +3,13 @@ require_once __DIR__ . "/classes/user.php";
 require_once __DIR__ . "/classes/product.php";
 require_once __DIR__ . "/classes/cc.php";
 
-$new_user = new User("Pino", "Pigna", "pinopigna79@gmail.com");
-$new_cc = new CC("Visa", "9893-1290-8834-0097", "511");
+$new_user = new User ("Pino", "Pigna", "pinopigna79@gmail.com",);
 
-$new_user->setCreditCard($new_cc);
+$new_user->setCreditCard("Visa", "9893-1290-8834-0097", "511");
 
 var_dump($new_user->getCreditCard());
 
-$new_product = new Product("Led Multicolore", "Elettronica", "EC44563");
+$new_product = new Product("Led Multicolore", "Elettronica", "EC44563", "40", "yes");
 
 
 ?>
@@ -41,13 +40,13 @@ $new_product = new Product("Led Multicolore", "Elettronica", "EC44563");
     $new_user->getEmail()
      ?>
   </p>
-  <h2>PRODOTTO:</h2>
+  <h2>PRODOTTO</h2>
   <p>Nome Prodotto: 
     <?php echo 
     $new_product->getProductName()
      ?>
   </p>
-  <p>Genere Prodotto: 
+  <p>Genere Prodotto 
     <?php echo 
     $new_product->getGenre()
      ?>
@@ -57,22 +56,32 @@ $new_product = new Product("Led Multicolore", "Elettronica", "EC44563");
     $new_product->getId()
      ?>
   </p>
-  <h2>CARTA DI CREDITO:</h2>
-  <p>Circuito Carta: 
+  <p>Prezzo Prodotto: 
     <?php echo 
-    $new_cc->getCircuit()
+    $new_product->getId()
      ?>
   </p>
-  <p>Codice Seriale: 
+  <p>Prime: 
     <?php echo 
-    $new_cc->getSerialCode()
+    $new_product->getId()
      ?>
   </p>
-  <p>CVV: 
-    <?php echo 
-    $new_cc->getCvv()
-     ?>
-  </p>
+  <h2>CARTA DI CREDITO</h2>
+
+    <p>
+      Circuito: 
+      <?php echo $new_user->getCreditCard()->getCircuit() ;?>
+    </p>
+    <p>
+      Codice Seriale: 
+      <?php echo $new_user->getCreditCard()->getSerialCode() ;?>
+    </p>
+    <p>
+      CVV: 
+      <?php echo $new_user->getCreditCard()->getCvv() ;?>
+    </p>
+     
+ 
 
 </body>
 </html>

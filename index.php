@@ -5,11 +5,11 @@ require_once __DIR__ . "/classes/cc.php";
 
 $new_user = new User ("Pino", "Pigna", "pinopigna79@gmail.com",);
 
-$new_user->setCreditCard("Visa", "9893-1290-8834-0097", "511");
+$new_user->setCreditCard("Visa", "9893-1290-8834-0097", "551");
 
 var_dump($new_user->getCreditCard());
 
-$new_product = new Product("Led Multicolore", "Elettronica", "EC44563", "40", "yes");
+$new_product = new Product("Led Multicolore", "Elettronica", "EC44563", 40, "yes");
 
 
 ?>
@@ -58,12 +58,12 @@ $new_product = new Product("Led Multicolore", "Elettronica", "EC44563", "40", "y
   </p>
   <p>Prezzo Prodotto: 
     <?php echo 
-    $new_product->getId()
+    $new_product->getPrice()
      ?>
   </p>
   <p>Prime: 
     <?php echo 
-    $new_product->getId()
+    $new_product->getPrime()
      ?>
   </p>
   <h2>CARTA DI CREDITO</h2>

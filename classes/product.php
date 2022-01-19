@@ -15,7 +15,7 @@ class Product {
     $this->productName = $_productName;
     $this->genre = $_genre;
     $this->id = $_id;
-    $this->price = $_price;
+    $this->price = $this->checkValidNumber($_price);
     $this->prime = $_prime;
   }
 
@@ -29,7 +29,7 @@ class Product {
     $this->id = $_id;
   }
   public function setPrice($_price){
-    $this->price = $_price;
+    $this->price = $this->checkValidNumber($_price);
   }
   public function setPrime($_prime){
     $this->prime = $_prime;
@@ -50,6 +50,15 @@ class Product {
   }
   public function getPrime(){
     return $this->prime;
+  }
+
+  private function checkValidNumber($price){
+
+    if(!is_int($price)){
+      throw new Exception('Non è un numero');
+    }
+ 
+    return  $price;
   }
  
 }

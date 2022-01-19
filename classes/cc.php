@@ -10,7 +10,7 @@ class CC extends User{
   {
     $this->circuit = $_circuit;
     $this->serialCode = $_serialCode;
-    $this->cvv = $_cvv;
+    $this->cvv = $this->checkValidCvv($_cvv);
   }
 
   public function setCircuit($_circuit){
@@ -20,7 +20,7 @@ class CC extends User{
     $this->serialCode = $_serialCode;
   }
   public function setCvv($_cvv){
-    $this->cvv = $_cvv;
+    $this->cvv = $this->checkValidCvv($_cvv);
   }
 
 
@@ -34,10 +34,6 @@ class CC extends User{
     return $this->cvv;
   }
 
-  public function setUser($_name,$_lastname,$_email)
-  {
-    $this->utente = new User($_name,$_lastname,$_email);
-  }
   public function getUser(){
     return $this->utente;
   }

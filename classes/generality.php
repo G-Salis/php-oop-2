@@ -10,4 +10,6 @@ trait Info {
     return "$this->price, $this->prime";
   }
 
+  
+
 }

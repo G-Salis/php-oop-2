@@ -40,11 +40,26 @@ class User {
 
   public function setCreditCard($_circuit,$_serialCode,$_cvv)
   {
-    $this->creditCard = new CC($_circuit,$_serialCode,$_cvv);
+    try {
+      $this->creditCard = new CC($_circuit,$_serialCode,$_cvv);
+    } catch (Exception $e) {
+      echo $e->getMessage();
+    }
   }
   public function getCreditCard(){
     return $this->creditCard;
   }
+
+
+
+  public function checkValidCvv($cvv){
+  
+    if(!is_int($cvv)){
+      throw new Exception('CVV non valido');
+    };
+    return  $cvv;
+  }
+
 
   
  
